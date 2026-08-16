@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AB VAULT</title>
+    <meta name="description" content="AB VAULT - Personal File Storage">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">AB</div>
+
+            <div>
+                <h1>AB VAULT</h1>
+                <span>YOUR PERSONAL FILE SPACE</span>
+            </div>
+        </div>
+
+        <div class="vault-status">
+            <span class="status-dot"></span>
+            VAULT ONLINE
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">PERSONAL STORAGE</p>
+
+                <h2>
+                    Everything important,
+                    <span>one place.</span>
+                </h2>
+
+                <p class="hero-description">
+                    Abid's personal collection of documents, photos and important files.
+                    Access them whenever you need.
+                </p>
+
+            </div>
+
+            <div class="vault-card">
+
+                <div class="vault-card-top">
+                    <span>VAULT</span>
+                    <span>AB</span>
+                </div>
+
+                <div class="vault-symbol">
+                    ◈
+                </div>
+
+                <div class="vault-card-bottom">
+                    <span id="totalFiles">0 FILES</span>
+                    <span>SECURE SPACE</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="controls">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search your files..."
+                    autocomplete="off"
+                >
+
+                <button id="clearSearch" class="clear-search">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="categories" id="categories">
+
+                <button class="category active" data-category="all">
+                    All
+                </button>
+
+                <button class="category" data-category="document">
+                    Documents
+                </button>
+
+                <button class="category" data-category="image">
+                    Images
+                </button>
+
+                <button class="category" data-category="other">
+                    Other
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="file-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h3>YOUR FILES</h3>
+                    <p id="resultText">All files in your vault</p>
+                </div>
+
+                <div class="file-count" id="visibleCount">
+                    0
+                </div>
+
+            </div>
+
+
+            <div id="fileGrid" class="file-grid"></div>
+
+
+            <div id="emptyState" class="empty-state hidden">
+
+                <div class="empty-icon">
+                    ◌
+                </div>
+
+                <h3>No files found</h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            <strong>AB VAULT</strong>
+            <span>PERSONAL FILE SPACE</span>
+        </div>
+
+        <div>
+            Made for easy access.
+        </div>
+
+    </footer>
+
+
+    <div id="toast" class="toast">
+        <span id="toastIcon">✓</span>
+        <span id="toastMessage">Copied!</span>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
