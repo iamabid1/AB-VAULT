@@ -1,8 +1,15 @@
+/* =====================================================
+   AB VAULT
+   YOUR PERSONAL FILE DATABASE
+===================================================== */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 :root {
     --bg: #070707;
@@ -19,34 +26,50 @@
     --radius: 20px;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.045), transparent 30%),
-        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.025), transparent 35%),
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,255,255,0.045),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(255,255,255,0.025),
+            transparent 35%
+        ),
         var(--bg);
 
     color: var(--text);
+
     font-family: "Inter", sans-serif;
 
     overflow-x: hidden;
 }
 
 
-/* BACKGROUND */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 .background-glow {
     position: fixed;
+
     width: 500px;
     height: 500px;
 
     border-radius: 50%;
 
     filter: blur(120px);
+
     opacity: 0.035;
 
     pointer-events: none;
@@ -54,26 +77,33 @@ body {
     z-index: -1;
 }
 
+
 .glow-one {
     top: -250px;
     left: -200px;
+
     background: white;
 }
+
 
 .glow-two {
     right: -250px;
     bottom: -250px;
+
     background: white;
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 .topbar {
     width: 100%;
     max-width: 1250px;
 
     margin: auto;
+
     padding: 28px 30px;
 
     display: flex;
@@ -81,11 +111,14 @@ body {
     justify-content: space-between;
 }
 
+
 .brand {
     display: flex;
     align-items: center;
+
     gap: 13px;
 }
+
 
 .brand-icon {
     width: 42px;
@@ -102,28 +135,35 @@ body {
     font-weight: 800;
     font-size: 13px;
 
-    box-shadow: 0 0 25px rgba(255,255,255,0.12);
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.12);
 }
+
 
 .brand h1 {
     font-size: 17px;
+
     letter-spacing: 1.5px;
 }
+
 
 .brand span {
     display: block;
 
     margin-top: 3px;
 
-    font-size: 8px;
-    letter-spacing: 2px;
-
     color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
 }
+
 
 .vault-status {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     padding: 9px 13px;
@@ -131,13 +171,16 @@ body {
     border: 1px solid var(--border);
     border-radius: 999px;
 
+    background: rgba(255,255,255,0.025);
+
     color: #aaa;
+
     font-size: 9px;
     font-weight: 600;
-    letter-spacing: 1px;
 
-    background: rgba(255,255,255,0.025);
+    letter-spacing: 1px;
 }
+
 
 .status-dot {
     width: 7px;
@@ -153,15 +196,20 @@ body {
 }
 
 
-/* MAIN */
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container {
     width: min(1150px, calc(100% - 40px));
+
     margin: auto;
 }
 
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
     min-height: 400px;
@@ -175,9 +223,11 @@ body {
     padding: 70px 0 80px;
 }
 
+
 .hero-text {
     max-width: 650px;
 }
+
 
 .eyebrow {
     margin-bottom: 18px;
@@ -186,8 +236,10 @@ body {
 
     font-size: 10px;
     font-weight: 700;
+
     letter-spacing: 3px;
 }
+
 
 .hero h2 {
     font-size: clamp(42px, 6vw, 76px);
@@ -197,9 +249,11 @@ body {
     letter-spacing: -4px;
 }
 
+
 .hero h2 span {
     color: #707070;
 }
+
 
 .hero-description {
     max-width: 520px;
@@ -209,11 +263,14 @@ body {
     color: #888;
 
     font-size: 14px;
+
     line-height: 1.8;
 }
 
 
-/* VAULT CARD */
+/* =====================================================
+   VAULT CARD
+===================================================== */
 
 .vault-card {
     width: 260px;
@@ -224,6 +281,7 @@ body {
     flex-shrink: 0;
 
     border: 1px solid rgba(255,255,255,0.13);
+
     border-radius: 20px;
 
     background:
@@ -242,13 +300,16 @@ body {
     transition: 0.4s ease;
 }
 
+
 .vault-card:hover {
     transform: rotate(0deg) translateY(-8px);
 }
 
+
 .vault-card-top,
 .vault-card-bottom {
     display: flex;
+
     justify-content: space-between;
 
     color: #777;
@@ -259,26 +320,32 @@ body {
     letter-spacing: 2px;
 }
 
+
 .vault-symbol {
     margin-top: 24px;
 
-    font-size: 40px;
-
     color: white;
 
-    text-shadow: 0 0 25px rgba(255,255,255,0.3);
+    font-size: 40px;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,0.3);
 }
+
 
 .vault-card-bottom {
     margin-top: 18px;
 }
 
 
-/* CONTROLS */
+/* =====================================================
+   CONTROLS
+===================================================== */
 
 .controls {
     padding-bottom: 45px;
 }
+
 
 .search-box {
     height: 58px;
@@ -289,6 +356,7 @@ body {
     padding: 0 18px;
 
     border: 1px solid var(--border);
+
     border-radius: 16px;
 
     background: rgba(255,255,255,0.025);
@@ -296,10 +364,13 @@ body {
     transition: 0.25s;
 }
 
+
 .search-box:focus-within {
     border-color: rgba(255,255,255,0.22);
+
     background: rgba(255,255,255,0.04);
 }
+
 
 .search-icon {
     margin-right: 12px;
@@ -308,6 +379,7 @@ body {
 
     font-size: 25px;
 }
+
 
 .search-box input {
     width: 100%;
@@ -320,17 +392,21 @@ body {
     color: white;
 
     font-family: inherit;
+
     font-size: 14px;
 }
+
 
 .search-box input::placeholder {
     color: #666;
 }
 
+
 .clear-search {
     display: none;
 
     border: none;
+
     background: transparent;
 
     color: #777;
@@ -340,26 +416,33 @@ body {
     cursor: pointer;
 }
 
+
 .clear-search.show {
     display: block;
 }
 
 
-/* CATEGORIES */
+/* =====================================================
+   CATEGORIES
+===================================================== */
 
 .categories {
     display: flex;
+
     gap: 8px;
 
     margin-top: 15px;
 
     overflow-x: auto;
+
     scrollbar-width: none;
 }
+
 
 .categories::-webkit-scrollbar {
     display: none;
 }
+
 
 .category {
     padding: 9px 15px;
@@ -367,6 +450,7 @@ body {
     flex-shrink: 0;
 
     border: 1px solid var(--border);
+
     border-radius: 999px;
 
     background: transparent;
@@ -374,6 +458,7 @@ body {
     color: #777;
 
     font-family: inherit;
+
     font-size: 11px;
 
     cursor: pointer;
@@ -381,19 +466,304 @@ body {
     transition: 0.2s;
 }
 
+
 .category:hover {
     color: white;
 }
 
+
 .category.active {
     background: white;
+
     color: black;
 
     border-color: white;
 }
 
+/* =====================================================
+   PASSWORD LOCK
+===================================================== */
 
-/* FILE SECTION */
+.password-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,0.05),
+            transparent 35%
+        ),
+        #070707;
+
+    backdrop-filter: blur(20px);
+}
+
+
+.password-box {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 32px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.065),
+            rgba(255,255,255,0.025)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.55),
+        inset 0 1px rgba(255,255,255,0.06);
+
+    text-align: center;
+
+    animation: passwordAppear 0.35s ease;
+}
+
+
+.password-icon {
+    width: 54px;
+    height: 54px;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,0.10);
+}
+
+
+.password-label {
+    color: #777;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.password-box h2 {
+    margin-top: 8px;
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+
+.password-description {
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.password-input-box {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 24px;
+
+    padding-left: 14px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.25);
+
+    transition: 0.2s;
+}
+
+
+.password-input-box:focus-within {
+    border-color: rgba(255,255,255,0.25);
+}
+
+
+.password-input-box input {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.password-input-box input::placeholder {
+    color: #555;
+
+    letter-spacing: 0;
+}
+
+
+#passwordToggle {
+    height: 100%;
+
+    padding: 0 14px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+#passwordToggle:hover {
+    color: white;
+}
+
+
+.unlock-button {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: black;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.unlock-button:hover {
+    background: #eeeeee;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+.unlock-button:active {
+    transform: translateY(0);
+}
+
+
+.password-error {
+    height: 15px;
+
+    margin-top: 12px;
+
+    color: #ff6b6b;
+
+    font-size: 10px;
+
+    opacity: 0;
+
+    transition: 0.2s;
+}
+
+
+.password-error.show {
+    opacity: 1;
+}
+
+
+.password-screen.unlocked {
+    animation: passwordDisappear 0.3s ease forwards;
+}
+
+
+@keyframes passwordAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes passwordDisappear {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+}
+
+/* =====================================================
+   FILE SECTION
+===================================================== */
 
 .section-heading {
     display: flex;
@@ -403,10 +773,13 @@ body {
     margin-bottom: 20px;
 }
 
+
 .section-heading h3 {
     font-size: 12px;
+
     letter-spacing: 2px;
 }
+
 
 .section-heading p {
     margin-top: 5px;
@@ -416,6 +789,7 @@ body {
     font-size: 11px;
 }
 
+
 .file-count {
     min-width: 34px;
     height: 34px;
@@ -424,6 +798,7 @@ body {
     place-items: center;
 
     border: 1px solid var(--border);
+
     border-radius: 10px;
 
     color: #888;
@@ -432,7 +807,9 @@ body {
 }
 
 
-/* FILE GRID */
+/* =====================================================
+   FILE GRID
+===================================================== */
 
 .file-grid {
     display: grid;
@@ -442,12 +819,14 @@ body {
     gap: 13px;
 }
 
+
 .file-card {
     position: relative;
 
     padding: 18px;
 
     border: 1px solid var(--border);
+
     border-radius: var(--radius);
 
     background: var(--card);
@@ -462,6 +841,7 @@ body {
     animation: appear 0.35s ease both;
 }
 
+
 .file-card:hover {
     transform: translateY(-4px);
 
@@ -470,11 +850,18 @@ body {
     background: rgba(255,255,255,0.055);
 }
 
+
 .file-top {
     display: flex;
+
     justify-content: space-between;
     align-items: flex-start;
 }
+
+
+/* =====================================================
+   BETTER FILE ICON
+===================================================== */
 
 .file-icon {
     width: 45px;
@@ -485,29 +872,74 @@ body {
 
     border-radius: 13px;
 
-    background: rgba(255,255,255,0.06);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.035)
+        );
 
-    font-size: 20px;
+    border: 1px solid rgba(255,255,255,0.07);
+
+    color: #e8e8e8;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 4px 15px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
 }
+
+
+.file-icon svg {
+    width: 22px;
+    height: 22px;
+
+    display: block;
+}
+
+
+.file-card:hover .file-icon {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.13),
+            rgba(255,255,255,0.05)
+        );
+
+    border-color: rgba(255,255,255,0.13);
+}
+
 
 .file-menu {
     color: #555;
+
     font-size: 18px;
 }
+
 
 .file-name {
     margin-top: 22px;
 
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
 
     font-size: 14px;
     font-weight: 600;
 }
 
+
 .file-info {
     display: flex;
+
     gap: 8px;
 
     margin-top: 7px;
@@ -517,8 +949,14 @@ body {
     font-size: 10px;
 }
 
+
+/* =====================================================
+   FILE ACTIONS
+===================================================== */
+
 .file-actions {
     display: grid;
+
     grid-template-columns: 1fr 42px;
 
     gap: 8px;
@@ -526,43 +964,136 @@ body {
     margin-top: 18px;
 }
 
+
+/* =====================================================
+   DOWNLOAD + COPY BUTTONS
+===================================================== */
+
 .download-btn,
 .copy-btn {
     height: 38px;
 
     border: 1px solid var(--border);
+
     border-radius: 10px;
 
     font-family: inherit;
+
     font-size: 11px;
+
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
 }
+
+
+/* =====================================================
+   DOWNLOAD BUTTON
+===================================================== */
 
 .download-btn {
-    background: white;
-    color: black;
+    padding: 0 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    border: 1px solid #e5e5e5;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
+
 .download-btn:hover {
-    background: #ddd;
+    background: #f5f5f5;
+
+    transform: translateY(-2px);
+
+    border-color: #ffffff;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
+
+
+.download-btn:active {
+    transform: translateY(0);
+
+    background: #eaeaea;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.download-btn svg {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    stroke-width: 2.5;
+
+    transition:
+        transform 0.18s ease;
+}
+
+
+.download-btn:hover svg {
+    transform: translateY(2px);
+}
+
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
 
 .copy-btn {
     background: rgba(255,255,255,0.03);
+
     color: #aaa;
 }
 
+
 .copy-btn:hover {
     color: white;
+
     background: rgba(255,255,255,0.08);
+
+    transform: translateY(-2px);
 }
 
 
-/* EMPTY */
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty-state {
     padding: 80px 20px;
@@ -570,31 +1101,40 @@ body {
     text-align: center;
 
     border: 1px dashed var(--border);
+
     border-radius: 20px;
 }
 
+
 .empty-icon {
     font-size: 40px;
+
     color: #444;
 }
+
 
 .empty-state h3 {
     margin-top: 12px;
 }
 
+
 .empty-state p {
     margin-top: 7px;
 
     color: #666;
+
     font-size: 12px;
 }
+
 
 .hidden {
     display: none;
 }
 
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
     max-width: 1150px;
@@ -606,6 +1146,7 @@ footer {
     border-top: 1px solid var(--border);
 
     display: flex;
+
     justify-content: space-between;
 
     color: #555;
@@ -613,9 +1154,11 @@ footer {
     font-size: 10px;
 }
 
+
 footer strong {
     color: #aaa;
 }
+
 
 footer span {
     margin-left: 8px;
@@ -624,7 +1167,9 @@ footer span {
 }
 
 
-/* TOAST */
+/* =====================================================
+   TOAST
+===================================================== */
 
 .toast {
     position: fixed;
@@ -635,12 +1180,15 @@ footer span {
     transform: translate(-50%, 100px);
 
     display: flex;
+
     align-items: center;
+
     gap: 9px;
 
     padding: 12px 17px;
 
     border: 1px solid rgba(255,255,255,0.12);
+
     border-radius: 12px;
 
     background: #161616;
@@ -649,19 +1197,23 @@ footer span {
 
     font-size: 11px;
 
-    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.5);
 
     transition: 0.3s;
 
     z-index: 100;
 }
 
+
 .toast.show {
     transform: translate(-50%, 0);
 }
 
 
-/* ANIMATIONS */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
 @keyframes pulse {
 
@@ -675,22 +1227,27 @@ footer span {
 
 }
 
+
 @keyframes appear {
 
     from {
         opacity: 0;
+
         transform: translateY(8px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 800px) {
 
@@ -698,46 +1255,57 @@ footer span {
         padding: 20px;
     }
 
+
     .vault-status {
         display: none;
     }
+
 
     .container {
         width: min(100% - 28px, 600px);
     }
 
+
     .hero {
         min-height: auto;
 
         flex-direction: column;
+
         align-items: flex-start;
 
         padding: 55px 0;
     }
 
+
     .hero h2 {
         letter-spacing: -2.5px;
     }
 
+
     .vault-card {
         width: 100%;
+
         max-width: 300px;
 
         align-self: center;
     }
 
+
     .file-grid {
         grid-template-columns: 1fr;
     }
+
 
     footer {
         margin-top: 70px;
 
         flex-direction: column;
+
         gap: 12px;
     }
 
 }
+
 
 @media (max-width: 420px) {
 
@@ -745,9 +1313,11 @@ footer span {
         font-size: 15px;
     }
 
+
     .hero h2 {
         font-size: 43px;
     }
+
 
     .hero-description {
         font-size: 13px;

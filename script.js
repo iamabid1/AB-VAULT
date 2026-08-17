@@ -24,28 +24,13 @@
 
 ===================================================== */
 
-// const files = [
+// GIT PUSH INFOS - 
 
-//     {
-//         name: "Birth Certificate",
-//         file: "files/birth-certificate.pdf",
-//         type: "document"
-//     },
+// git add .
+// git commit -m ""
+// git push
 
-//     {
-//         name: "Passport Photo",
-//         file: "files/passport-photo.jpg",
-//         type: "image"
-//     },
 
-//     {
-//         name: "School Document",
-//         file: "files/school-document.pdf",
-//         type: "document"
-//     }
-    
-
-// ];
 const files = [
 
     {
@@ -65,7 +50,7 @@ const files = [
         file: "files/Script-Bangla.pdf",
         type: "pdf"
     },
-    
+
 ];
 
 
@@ -96,6 +81,121 @@ let currentSearch = "";
 
 
 /* =====================================================
+   BASIC PASSWORD LOCK
+===================================================== */
+
+const validPasswords = [
+    "9784",
+    "930047",
+    "2930047"
+];
+
+
+const passwordScreen =
+    document.getElementById("passwordScreen");
+
+const passwordInput =
+    document.getElementById("passwordInput");
+
+const unlockButton =
+    document.getElementById("unlockButton");
+
+const passwordError =
+    document.getElementById("passwordError");
+
+const passwordToggle =
+    document.getElementById("passwordToggle");
+
+
+function unlockVault() {
+
+    const password =
+        passwordInput.value.trim();
+
+
+    if (validPasswords.includes(password)) {
+
+        passwordError.classList.remove("show");
+
+        passwordScreen.classList.add("unlocked");
+
+        sessionStorage.setItem(
+            "abVaultUnlocked",
+            "true"
+        );
+
+    } else {
+
+        passwordError.classList.add("show");
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
+
+    }
+
+}
+
+
+/* Unlock button */
+
+unlockButton.addEventListener(
+    "click",
+    unlockVault
+);
+
+
+/* Press Enter */
+
+passwordInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Enter") {
+
+            unlockVault();
+
+        }
+
+    }
+);
+
+
+/* Show / hide password */
+
+passwordToggle.addEventListener(
+    "click",
+    () => {
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            passwordToggle.textContent = "Hide";
+
+        } else {
+
+            passwordInput.type = "password";
+
+            passwordToggle.textContent = "Show";
+
+        }
+
+    }
+);
+
+
+/* Already unlocked during this browser session */
+
+if (
+    sessionStorage.getItem("abVaultUnlocked") === "true"
+) {
+
+    passwordScreen.classList.add("unlocked");
+
+}
+
+/* =====================================================
    FILE ICONS
 ===================================================== */
 
@@ -107,38 +207,330 @@ function getFileIcon(fileName) {
             .pop()
             .toLowerCase();
 
+
     const icons = {
 
-        pdf: "📕",
+        /* PDF */
 
-        jpg: "🖼️",
-        jpeg: "🖼️",
-        png: "🖼️",
-        webp: "🖼️",
+        pdf: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
 
-        mp4: "🎬",
-        mov: "🎬",
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M8 13h8"/>
+                <path d="M8 17h5"/>
 
-        mp3: "🎵",
-        wav: "🎵",
+            </svg>
+        `,
 
-        zip: "📦",
-        rar: "📦",
 
-        doc: "📘",
-        docx: "📘",
+        /* IMAGES */
 
-        xls: "📊",
-        xlsx: "📊",
+        jpg: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
 
-        ppt: "📊",
-        pptx: "📊",
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="m21 15-5-5L5 21"/>
 
-        txt: "📄"
+            </svg>
+        `,
+
+        jpeg: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="m21 15-5-5L5 21"/>
+
+            </svg>
+        `,
+
+        png: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="m21 15-5-5L5 21"/>
+
+            </svg>
+        `,
+
+        webp: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="m21 15-5-5L5 21"/>
+
+            </svg>
+        `,
+
+
+        /* VIDEO */
+
+        mp4: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="3" y="5" width="18" height="14" rx="3"/>
+                <path d="m10 9 5 3-5 3V9z"/>
+
+            </svg>
+        `,
+
+        mov: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="3" y="5" width="18" height="14" rx="3"/>
+                <path d="m10 9 5 3-5 3V9z"/>
+
+            </svg>
+        `,
+
+
+        /* AUDIO */
+
+        mp3: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M9 18V5l10-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="16" cy="16" r="3"/>
+
+            </svg>
+        `,
+
+        wav: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M3 12h2l2-6 4 12 3-9 2 6h5"/>
+
+            </svg>
+        `,
+
+
+        /* ARCHIVES */
+
+        zip: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M7 3h10v18H7z"/>
+                <path d="M10 3v3h4V3"/>
+                <path d="M10 9h4"/>
+                <path d="M10 12h4"/>
+                <path d="M10 15h4"/>
+
+            </svg>
+        `,
+
+        rar: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M7 3h10v18H7z"/>
+                <path d="M10 3v3h4V3"/>
+                <path d="M10 9h4"/>
+                <path d="M10 12h4"/>
+                <path d="M10 15h4"/>
+
+            </svg>
+        `,
+
+
+        /* WORD */
+
+        doc: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M8 13h8"/>
+                <path d="M8 17h6"/>
+
+            </svg>
+        `,
+
+        docx: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M8 13h8"/>
+                <path d="M8 17h6"/>
+
+            </svg>
+        `,
+
+
+        /* EXCEL */
+
+        xls: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="4" y="3" width="16" height="18" rx="2"/>
+                <path d="M8 8h8"/>
+                <path d="M8 12h8"/>
+                <path d="M8 16h8"/>
+                <path d="M12 8v8"/>
+
+            </svg>
+        `,
+
+        xlsx: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="4" y="3" width="16" height="18" rx="2"/>
+                <path d="M8 8h8"/>
+                <path d="M8 12h8"/>
+                <path d="M8 16h8"/>
+                <path d="M12 8v8"/>
+
+            </svg>
+        `,
+
+
+        /* POWERPOINT */
+
+        ppt: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="4" y="3" width="16" height="18" rx="2"/>
+                <path d="M8 16V9h4a2 2 0 0 1 0 4H8"/>
+
+            </svg>
+        `,
+
+        pptx: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <rect x="4" y="3" width="16" height="18" rx="2"/>
+                <path d="M8 16V9h4a2 2 0 0 1 0 4H8"/>
+
+            </svg>
+        `,
+
+
+        /* TEXT */
+
+        txt: `
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M5 4h14"/>
+                <path d="M5 8h14"/>
+                <path d="M5 12h14"/>
+                <path d="M5 16h9"/>
+                <path d="M5 20h7"/>
+
+            </svg>
+        `
 
     };
 
-    return icons[extension] || "📄";
+
+    return icons[extension] || `
+        <svg viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/>
+            <path d="M8 13h8"/>
+            <path d="M8 17h6"/>
+
+        </svg>
+    `;
 }
 
 
@@ -241,8 +633,26 @@ function renderFiles() {
                     href="${encodeURI(item.file)}"
                     download
                 >
-                    Download
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 21h14"></path>
+
+                    </svg>
+
+                    <span>Download</span>
+
                 </a>
+
 
                 <button
                     class="copy-btn"

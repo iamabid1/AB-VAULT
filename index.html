@@ -7,6 +7,8 @@
     <title>AB VAULT</title>
     <meta name="description" content="AB VAULT - Personal File Storage">
 
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,6 +180,53 @@
         <span id="toastIcon">✓</span>
         <span id="toastMessage">Copied!</span>
     </div>
+
+    <!-- =====================================================
+     PASSWORD LOCK
+===================================================== -->
+
+<div id="passwordScreen" class="password-screen">
+
+    <div class="password-box">
+
+        <div class="password-icon">
+            AB
+        </div>
+
+        <p class="password-label">PRIVATE VAULT</p>
+
+        <h2>AB VAULT</h2>
+
+        <p class="password-description">
+            Enter your access password to continue.
+        </p>
+
+        <div class="password-input-box">
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter password"
+                autocomplete="off"
+            >
+
+            <button id="passwordToggle" type="button">
+                Show
+            </button>
+
+        </div>
+
+        <button id="unlockButton" class="unlock-button">
+            Unlock Vault
+        </button>
+
+        <p id="passwordError" class="password-error">
+            Incorrect password
+        </p>
+
+    </div>
+
+</div>
 
 
     <script src="script.js"></script>
