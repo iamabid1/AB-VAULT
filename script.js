@@ -56,8 +56,8 @@ const files = [
 
     {
         name: "English Debate script",
-        file: "files/Script-English.jpg",
-        type: "image"
+        file: "files/Script-English.pdf",
+        type: "pdf"
     },
 
     {
