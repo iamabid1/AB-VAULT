@@ -67,6 +67,18 @@ const files = [
         file: "files/husnat2q.pdf",
         type: "pdf"
     },
+    
+    {
+        name: "husnat english debate",
+        file: "files/english-debate-h.pdf",
+        type: "pdf"
+    },
+    {
+        name: "nafiz bokta",
+        file: "files/nafizbokta.pdf",
+        type: "pdf"
+    },
+
 
 ];
 
