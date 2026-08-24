@@ -45,39 +45,7 @@ const files = [
         type: "pdf"
     },
 
-    {
-        name: "BanglaDebate script",
-        file: "files/Script-Bangla.pdf",
-        type: "pdf"
-    },
-    {
-        name: "husnat1-bokta",
-        file: "files/husnat1b.pdf",
-        type: "pdf"
-    },
     
-    {
-        name: "husnat2-bokta",
-        file: "files/husnat2b.pdf",
-        type: "pdf"
-    },
-    
-    {
-        name: "husnat questions",
-        file: "files/husnat2q.pdf",
-        type: "pdf"
-    },
-    
-    {
-        name: "husnat english debate",
-        file: "files/english-debate-h.pdf",
-        type: "pdf"
-    },
-    {
-        name: "nafiz bokta",
-        file: "files/nafizbokta.pdf",
-        type: "pdf"
-    },
 
 
 ];
