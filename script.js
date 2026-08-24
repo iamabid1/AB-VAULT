@@ -45,6 +45,12 @@ const files = [
         type: "pdf"
     },
 
+    {
+        name: "traffic light project ardiuno",
+        file: "files/traffic-light-project-arduino.jpg",
+        type: "jpg"
+    },
+
     
 
 
