@@ -3,7 +3,6 @@
    YOUR PERSONAL FILE DATABASE
 ===================================================== */
 
-
 /* =====================================================
    ADD YOUR FILES HERE
 =====================================================
@@ -24,38 +23,37 @@
 
 ===================================================== */
 
-// GIT PUSH INFOS - 
+// GIT PUSH INFOS -
 
 // git add .
 // git commit -m ""
 // git push
 
-
 const files = [
+  {
+    name: "OG School ID",
+    file: "files/school-document.jpg",
+    type: "image",
+  },
 
-    {
-        name: "OG School ID",
-        file: "files/school-document.jpg",
-        type: "image"
-    },
+  {
+    name: "English Debate script",
+    file: "files/Script-English.pdf",
+    type: "pdf",
+  },
 
-    {
-        name: "English Debate script",
-        file: "files/Script-English.pdf",
-        type: "pdf"
-    },
+  {
+    name: "traffic light project ardiuno",
+    file: "files/traffic-light-project-arduino.jpg",
+    type: "jpg",
+  },
 
-    {
-        name: "traffic light project ardiuno",
-        file: "files/traffic-light-project-arduino.jpg",
-        type: "jpg"
-    },
-
-    
-
-
+  {
+    name: "traffic light project ardiuno",
+    file: "files/traffic-light-project-arduino.jpg",
+    type: "jpg",
+  },
 ];
-
 
 /* =====================================================
    DOM
@@ -78,123 +76,73 @@ const toast = document.getElementById("toast");
 const toastMessage = document.getElementById("toastMessage");
 const toastIcon = document.getElementById("toastIcon");
 
-
 let activeCategory = "all";
 let currentSearch = "";
-
 
 /* =====================================================
    BASIC PASSWORD LOCK
 ===================================================== */
 
-const validPasswords = [
-    "930047",
-    "2930047"
-];
+const validPasswords = ["930047", "2930047"];
 
+const passwordScreen = document.getElementById("passwordScreen");
 
-const passwordScreen =
-    document.getElementById("passwordScreen");
+const passwordInput = document.getElementById("passwordInput");
 
-const passwordInput =
-    document.getElementById("passwordInput");
+const unlockButton = document.getElementById("unlockButton");
 
-const unlockButton =
-    document.getElementById("unlockButton");
+const passwordError = document.getElementById("passwordError");
 
-const passwordError =
-    document.getElementById("passwordError");
-
-const passwordToggle =
-    document.getElementById("passwordToggle");
-
+const passwordToggle = document.getElementById("passwordToggle");
 
 function unlockVault() {
+  const password = passwordInput.value.trim();
 
-    const password =
-        passwordInput.value.trim();
-
-
-    if (validPasswords.includes(password)) {
-
-        passwordError.classList.remove("show");
-
-        passwordScreen.classList.add("unlocked");
-
-        sessionStorage.setItem(
-            "abVaultUnlocked",
-            "true"
-        );
-
-    } else {
-
-        passwordError.classList.add("show");
-
-        passwordInput.value = "";
-
-        passwordInput.focus();
-
-    }
-
-}
-
-
-/* Unlock button */
-
-unlockButton.addEventListener(
-    "click",
-    unlockVault
-);
-
-
-/* Press Enter */
-
-passwordInput.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Enter") {
-
-            unlockVault();
-
-        }
-
-    }
-);
-
-
-/* Show / hide password */
-
-passwordToggle.addEventListener(
-    "click",
-    () => {
-
-        if (passwordInput.type === "password") {
-
-            passwordInput.type = "text";
-
-            passwordToggle.textContent = "Hide";
-
-        } else {
-
-            passwordInput.type = "password";
-
-            passwordToggle.textContent = "Show";
-
-        }
-
-    }
-);
-
-
-/* Already unlocked during this browser session */
-
-if (
-    sessionStorage.getItem("abVaultUnlocked") === "true"
-) {
+  if (validPasswords.includes(password)) {
+    passwordError.classList.remove("show");
 
     passwordScreen.classList.add("unlocked");
 
+    sessionStorage.setItem("abVaultUnlocked", "true");
+  } else {
+    passwordError.classList.add("show");
+
+    passwordInput.value = "";
+
+    passwordInput.focus();
+  }
+}
+
+/* Unlock button */
+
+unlockButton.addEventListener("click", unlockVault);
+
+/* Press Enter */
+
+passwordInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    unlockVault();
+  }
+});
+
+/* Show / hide password */
+
+passwordToggle.addEventListener("click", () => {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+
+    passwordToggle.textContent = "Hide";
+  } else {
+    passwordInput.type = "password";
+
+    passwordToggle.textContent = "Show";
+  }
+});
+
+/* Already unlocked during this browser session */
+
+if (sessionStorage.getItem("abVaultUnlocked") === "true") {
+  passwordScreen.classList.add("unlocked");
 }
 
 /* =====================================================
@@ -202,19 +150,12 @@ if (
 ===================================================== */
 
 function getFileIcon(fileName) {
+  const extension = fileName.split(".").pop().toLowerCase();
 
-    const extension =
-        fileName
-            .split(".")
-            .pop()
-            .toLowerCase();
+  const icons = {
+    /* PDF */
 
-
-    const icons = {
-
-        /* PDF */
-
-        pdf: `
+    pdf: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -230,10 +171,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* IMAGES */
 
-        /* IMAGES */
-
-        jpg: `
+    jpg: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -248,7 +188,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        jpeg: `
+    jpeg: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -263,7 +203,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        png: `
+    png: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -278,7 +218,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        webp: `
+    webp: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -293,10 +233,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* VIDEO */
 
-        /* VIDEO */
-
-        mp4: `
+    mp4: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -310,7 +249,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        mov: `
+    mov: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -324,10 +263,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* AUDIO */
 
-        /* AUDIO */
-
-        mp3: `
+    mp3: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -342,7 +280,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        wav: `
+    wav: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -355,10 +293,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* ARCHIVES */
 
-        /* ARCHIVES */
-
-        zip: `
+    zip: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -375,7 +312,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        rar: `
+    rar: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -392,10 +329,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* WORD */
 
-        /* WORD */
-
-        doc: `
+    doc: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -411,7 +347,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        docx: `
+    docx: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -427,10 +363,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* EXCEL */
 
-        /* EXCEL */
-
-        xls: `
+    xls: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -447,7 +382,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        xlsx: `
+    xlsx: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -464,10 +399,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* POWERPOINT */
 
-        /* POWERPOINT */
-
-        ppt: `
+    ppt: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -481,7 +415,7 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
-        pptx: `
+    pptx: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -495,10 +429,9 @@ function getFileIcon(fileName) {
             </svg>
         `,
 
+    /* TEXT */
 
-        /* TEXT */
-
-        txt: `
+    txt: `
             <svg viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -513,12 +446,12 @@ function getFileIcon(fileName) {
                 <path d="M5 20h7"/>
 
             </svg>
-        `
+        `,
+  };
 
-    };
-
-
-    return icons[extension] || `
+  return (
+    icons[extension] ||
+    `
         <svg viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -532,69 +465,50 @@ function getFileIcon(fileName) {
             <path d="M8 17h6"/>
 
         </svg>
-    `;
+    `
+  );
 }
-
 
 /* =====================================================
    FILE TYPE
 ===================================================== */
 
 function getFileType(fileName) {
+  const extension = fileName.split(".").pop().toUpperCase();
 
-    const extension =
-        fileName
-            .split(".")
-            .pop()
-            .toUpperCase();
-
-    return extension;
+  return extension;
 }
-
 
 /* =====================================================
    RENDER FILES
 ===================================================== */
 
 function renderFiles() {
+  const filteredFiles = files.filter((item) => {
+    const matchesCategory =
+      activeCategory === "all" || item.type === activeCategory;
 
-    const filteredFiles = files.filter(item => {
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(currentSearch.toLowerCase());
 
-        const matchesCategory =
-            activeCategory === "all" ||
-            item.type === activeCategory;
+    return matchesCategory && matchesSearch;
+  });
 
-        const matchesSearch =
-            item.name
-                .toLowerCase()
-                .includes(currentSearch.toLowerCase());
+  fileGrid.innerHTML = "";
 
-        return matchesCategory && matchesSearch;
+  filteredFiles.forEach((item, index) => {
+    const card = document.createElement("article");
 
-    });
+    card.className = "file-card";
 
+    card.style.animationDelay = `${index * 40}ms`;
 
-    fileGrid.innerHTML = "";
+    const icon = getFileIcon(item.file);
 
+    const type = getFileType(item.file);
 
-    filteredFiles.forEach((item, index) => {
-
-        const card = document.createElement("article");
-
-        card.className = "file-card";
-
-        card.style.animationDelay =
-            `${index * 40}ms`;
-
-
-        const icon =
-            getFileIcon(item.file);
-
-        const type =
-            getFileType(item.file);
-
-
-        card.innerHTML = `
+    card.innerHTML = `
 
             <div class="file-top">
 
@@ -668,155 +582,93 @@ function renderFiles() {
 
         `;
 
+    fileGrid.appendChild(card);
+  });
 
-        fileGrid.appendChild(card);
+  visibleCount.textContent = filteredFiles.length;
 
-    });
+  totalFiles.textContent = `${files.length} FILE${files.length === 1 ? "" : "S"}`;
 
+  if (filteredFiles.length === 0) {
+    emptyState.classList.remove("hidden");
+  } else {
+    emptyState.classList.add("hidden");
+  }
 
-    visibleCount.textContent =
-        filteredFiles.length;
-
-    totalFiles.textContent =
-        `${files.length} FILE${files.length === 1 ? "" : "S"}`;
-
-
-    if (filteredFiles.length === 0) {
-
-        emptyState.classList.remove("hidden");
-
-    } else {
-
-        emptyState.classList.add("hidden");
-
-    }
-
-
-    if (currentSearch) {
-
-        resultText.textContent =
-            `${filteredFiles.length} result${filteredFiles.length === 1 ? "" : "s"} for "${currentSearch}"`;
-
-    } else if (activeCategory !== "all") {
-
-        resultText.textContent =
-            `Showing ${activeCategory} files`;
-
-    } else {
-
-        resultText.textContent =
-            "All files in your vault";
-
-    }
-
+  if (currentSearch) {
+    resultText.textContent = `${filteredFiles.length} result${filteredFiles.length === 1 ? "" : "s"} for "${currentSearch}"`;
+  } else if (activeCategory !== "all") {
+    resultText.textContent = `Showing ${activeCategory} files`;
+  } else {
+    resultText.textContent = "All files in your vault";
+  }
 }
-
 
 /* =====================================================
    SEARCH
 ===================================================== */
 
 searchInput.addEventListener("input", () => {
+  currentSearch = searchInput.value.trim();
 
-    currentSearch =
-        searchInput.value.trim();
+  if (currentSearch) {
+    clearSearch.classList.add("show");
+  } else {
+    clearSearch.classList.remove("show");
+  }
 
-    if (currentSearch) {
-
-        clearSearch.classList.add("show");
-
-    } else {
-
-        clearSearch.classList.remove("show");
-
-    }
-
-    renderFiles();
-
+  renderFiles();
 });
-
 
 clearSearch.addEventListener("click", () => {
+  searchInput.value = "";
 
-    searchInput.value = "";
+  currentSearch = "";
 
-    currentSearch = "";
+  clearSearch.classList.remove("show");
 
-    clearSearch.classList.remove("show");
+  searchInput.focus();
 
-    searchInput.focus();
-
-    renderFiles();
-
+  renderFiles();
 });
-
 
 /* =====================================================
    CATEGORY FILTER
 ===================================================== */
 
-categories.addEventListener("click", event => {
+categories.addEventListener("click", (event) => {
+  const button = event.target.closest(".category");
 
-    const button =
-        event.target.closest(".category");
+  if (!button) return;
 
-    if (!button) return;
+  document.querySelectorAll(".category").forEach((item) => {
+    item.classList.remove("active");
+  });
 
+  button.classList.add("active");
 
-    document
-        .querySelectorAll(".category")
-        .forEach(item => {
+  activeCategory = button.dataset.category;
 
-            item.classList.remove("active");
-
-        });
-
-
-    button.classList.add("active");
-
-
-    activeCategory =
-        button.dataset.category;
-
-
-    renderFiles();
-
+  renderFiles();
 });
-
 
 /* =====================================================
    COPY FILE LINK
 ===================================================== */
 
 async function copyFileLink(encodedFile) {
+  const file = decodeURIComponent(encodedFile);
 
-    const file =
-        decodeURIComponent(encodedFile);
+  const fullURL = new URL(file, window.location.href).href;
 
-    const fullURL =
-        new URL(file, window.location.href).href;
+  try {
+    await navigator.clipboard.writeText(fullURL);
 
-
-    try {
-
-        await navigator.clipboard.writeText(fullURL);
-
-        showToast(
-            "✓",
-            "File link copied"
-        );
-
-    } catch {
-
-        showToast(
-            "!",
-            "Could not copy link"
-        );
-
-    }
-
+    showToast("✓", "File link copied");
+  } catch {
+    showToast("!", "Could not copy link");
+  }
 }
-
 
 /* =====================================================
    TOAST
@@ -825,39 +677,30 @@ async function copyFileLink(encodedFile) {
 let toastTimer;
 
 function showToast(icon, message) {
+  toastIcon.textContent = icon;
+  toastMessage.textContent = message;
 
-    toastIcon.textContent = icon;
-    toastMessage.textContent = message;
+  toast.classList.add("show");
 
-    toast.classList.add("show");
+  clearTimeout(toastTimer);
 
-    clearTimeout(toastTimer);
-
-    toastTimer =
-        setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        }, 2200);
-
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
 }
-
 
 /* =====================================================
    SECURITY
 ===================================================== */
 
 function escapeHTML(text) {
-
-    return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
-
 
 /* =====================================================
    START
