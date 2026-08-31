@@ -30,11 +30,11 @@
 // git push
 
 const files = [
-  {
-    name: "OG School ID",
-    file: "files/school-document.jpg",
-    type: "image",
-  },
+  //   {
+  //     name: "OG School ID",
+  //     file: "files/school-document.jpg",
+  //     type: "image",
+  //   },
 
   {
     name: "English Debate script",
@@ -49,9 +49,9 @@ const files = [
   },
 
   {
-    name: "traffic light project ardiuno",
-    file: "files/traffic-light-project-arduino.jpg",
-    type: "jpg",
+    name: "alif's document - debate",
+    file: "files/alifdoc.pdf",
+    type: "pdf",
   },
 ];
 
