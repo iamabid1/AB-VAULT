@@ -52,6 +52,11 @@ const files = [
     file: "files/p_question.pdf",
     type: "pdf",
   },
+  {
+    name: "Logos for araf",
+    file: "files/araflogos.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
