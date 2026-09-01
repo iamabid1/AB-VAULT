@@ -36,22 +36,16 @@ const files = [
   //     type: "image",
   //   },
 
-  {
-    name: "English Debate script",
-    file: "files/Script-English.pdf",
-    type: "pdf",
-  },
+  // {
+  //   name: "English Debate script",
+  //   file: "files/Script-English.pdf",
+  //   type: "pdf",
+  // },
 
   {
     name: "traffic light project ardiuno",
     file: "files/traffic-light-project-arduino.jpg",
     type: "jpg",
-  },
-
-  {
-    name: "alif's document - debate",
-    file: "files/alifdoc.pdf",
-    type: "pdf",
   },
 ];
 
