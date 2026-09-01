@@ -47,6 +47,11 @@ const files = [
     file: "files/traffic-light-project-arduino.jpg",
     type: "jpg",
   },
+  {
+    name: "Debate Possible Questions",
+    file: "files/p_question.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
