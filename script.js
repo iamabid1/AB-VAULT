@@ -40,6 +40,17 @@ const files = [
   //   file: "files/Script-English.pdf",
   //   type: "pdf",
   // },
+
+  {
+    name: "Logos for araf",
+    file: "files/araflogos.pdf",
+    type: "pdf",
+  },
+  {
+    name: "",
+    file: "files/araflogos.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
