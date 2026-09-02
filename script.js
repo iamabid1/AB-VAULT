@@ -35,38 +35,11 @@ const files = [
   //     file: "files/school-document.jpg",
   //     type: "image",
   //   },
-
   // {
   //   name: "English Debate script",
   //   file: "files/Script-English.pdf",
   //   type: "pdf",
   // },
-
-  {
-    name: "traffic light project ardiuno",
-    file: "files/traffic-light-project-arduino.jpg",
-    type: "jpg",
-  },
-  {
-    name: "Debate Possible Questions",
-    file: "files/p_question.pdf",
-    type: "pdf",
-  },
-  {
-    name: "Logos for araf",
-    file: "files/araflogos.pdf",
-    type: "pdf",
-  },
-  {
-    name: "Logos for araf",
-    file: "files/araflogos.pdf",
-    type: "pdf",
-  },
-  {
-    name: "মেধা বিকাশে বইয়ের গুরুত্ব",
-    file: "files/teambookjukti.pdf",
-    type: "pdf",
-  },
 ];
 
 /* =====================================================
