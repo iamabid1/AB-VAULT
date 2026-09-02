@@ -926,14 +926,21 @@ body {
 .file-name {
     margin-top: 22px;
 
-    white-space: nowrap;
+    min-width: 0;
 
     overflow: hidden;
 
     text-overflow: ellipsis;
 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
     font-size: 14px;
     font-weight: 600;
+
+    line-height: 1.45;
+    min-height: calc(14px * 1.45 * 2);
 }
 
 

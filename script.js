@@ -47,9 +47,19 @@ const files = [
     type: "pdf",
   },
   {
-    name: "",
-    file: "files/araflogos.pdf",
+    name: "মেধা বিকাশে বইয়ের গুরুত্ব",
+    file: "files/teambookjukti.pdf",
     type: "pdf",
+  },
+  {
+    name: "Possible question for team book",
+    file: "files/possibleqforteambook.pdf",
+    type: "pdf",
+  },
+  {
+    name: "Trafic light project",
+    file: "files/traffic-light-project-arduino.jpg",
+    type: "jpg",
   },
 ];
 
@@ -478,13 +488,44 @@ function getFileType(fileName) {
 }
 
 /* =====================================================
+   FILE CATEGORY
+===================================================== */
+
+function getFileCategory(fileName) {
+  const extension = fileName.split(".").pop().toLowerCase();
+
+  const documentTypes = [
+    "pdf",
+    "doc",
+    "docx",
+    "xls",
+    "xlsx",
+    "ppt",
+    "pptx",
+    "txt",
+  ];
+
+  const imageTypes = ["jpg", "jpeg", "png", "webp"];
+
+  if (documentTypes.includes(extension)) {
+    return "document";
+  }
+
+  if (imageTypes.includes(extension)) {
+    return "image";
+  }
+
+  return "other";
+}
+
+/* =====================================================
    RENDER FILES
 ===================================================== */
 
 function renderFiles() {
   const filteredFiles = files.filter((item) => {
     const matchesCategory =
-      activeCategory === "all" || item.type === activeCategory;
+      activeCategory === "all" || getFileCategory(item.file) === activeCategory;
 
     const matchesSearch = item.name
       .toLowerCase()
