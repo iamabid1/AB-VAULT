@@ -57,6 +57,16 @@ const files = [
     file: "files/araflogos.pdf",
     type: "pdf",
   },
+  {
+    name: "Logos for araf",
+    file: "files/araflogos.pdf",
+    type: "pdf",
+  },
+  {
+    name: "মেধা বিকাশে বইয়ের গুরুত্ব",
+    file: "files/teambookjukti.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
