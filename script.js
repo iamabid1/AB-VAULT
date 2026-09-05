@@ -61,6 +61,11 @@ const files = [
     file: "files/traffic-light-project-arduino.jpg",
     type: "jpg",
   },
+  {
+    name: "Alif Script",
+    file: "files/alifscript.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
