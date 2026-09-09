@@ -66,6 +66,11 @@ const files = [
     file: "files/alifscript.pdf",
     type: "pdf",
   },
+  {
+    name: "Final Script",
+    file: "files/finalscript.pdf",
+    type: "pdf",
+  },
 ];
 
 /* =====================================================
