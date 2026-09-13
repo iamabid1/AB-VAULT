@@ -30,16 +30,16 @@
 // git push
 
 const files = [
-  //   {
-  //     name: "OG School ID",
-  //     file: "files/school-document.jpg",
-  //     type: "image",
-  //   },
-  // {
-  //   name: "English Debate script",
-  //   file: "files/Script-English.pdf",
-  //   type: "pdf",
-  // },
+  {
+    name: "OG School ID",
+    file: "files/school-document.jpg",
+    type: "image",
+  },
+  {
+    name: "English Debate script",
+    file: "files/Script-English.pdf",
+    type: "pdf",
+  },
 
   {
     name: "Logos for araf",
